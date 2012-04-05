@@ -1,8 +1,6 @@
 package rgb_alpha;
 
 import javax.swing.JPanel;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -15,7 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 
 /**
- *
+ * The JPanel subclass that is used to draw everything in the game and delegate all user input
  * @author Polygon
  */
 public class gameScreen extends JPanel
@@ -24,7 +22,7 @@ public class gameScreen extends JPanel
     
     /**
      *
-     * Default Constructor of gameScreen
+     * Default Constructor of the gameScreen
      */
     public gameScreen()
     {
@@ -37,88 +35,93 @@ public class gameScreen extends JPanel
         
     }
     
-    public class TimedTasks extends TimerTask
-    {
-
-        @Override
-        public void run() {
-            repaint();
-        }
-        
-    }
-    
+    /**
+     * The class the processes key events
+     */
     public class myKeyListener implements KeyListener
     {
-
         @Override
-        public void keyTyped(KeyEvent e) {
+        public void keyTyped(KeyEvent e)
+        {
             
         }
 
         @Override
-        public void keyPressed(KeyEvent e) {
+        public void keyPressed(KeyEvent e)
+        {
             
         }
 
         @Override
-        public void keyReleased(KeyEvent e) {
+        public void keyReleased(KeyEvent e)
+        {
             
         }
-        
     }
     
+    /**
+     * The class that processes mouse events
+     */
     public class myMouseListener implements MouseListener
     {
-
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mouseClicked(MouseEvent e)
+        {
             
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
+        public void mousePressed(MouseEvent e)
+        {
             
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public void mouseReleased(MouseEvent e)
+        {
             
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
+        public void mouseEntered(MouseEvent e)
+        {
             
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
+        public void mouseExited(MouseEvent e)
+        {
             
         }
-        
     }
     
+    /**
+     * The class that processes mouse motion events
+     */
     public class myMouseMotionListener implements MouseMotionListener
     {
-
         @Override
-        public void mouseDragged(MouseEvent e) {
+        public void mouseDragged(MouseEvent e)
+        {
             
         }
 
         @Override
-        public void mouseMoved(MouseEvent e) {
+        public void mouseMoved(MouseEvent e)
+        {
             
         }
-        
     }
     
+    /**
+     * The class that processes mouse wheel events
+     */
     public class myMouseWheelListener implements MouseWheelListener
     {
-
         @Override
-        public void mouseWheelMoved(MouseWheelEvent e) {
+        public void mouseWheelMoved(MouseWheelEvent e)
+        {
             
         }
-        
     }
 }

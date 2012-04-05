@@ -130,89 +130,111 @@ crafting- see netbeans project crafting squares
 [ ][O][O][ ]
 [O][ ][ ][O]
 
-	signs are created and placed in the world by the player to affect himself or enemies
-	signs have different effects based on the colors included in the crafting of the sign, and the specific shape of the sign(folowing recepies)
-		% red affects enemies
-		% green affects the player
-		% blue affects the physics
-	upgrades to different values such as storage of raw color, player health, ect can be done through special temporary signs
-	levels could be cleared by either a task(making a certain sign, or surviving for a certain amount of time, reaching a certain point ect)
+	-signs are created and placed in the world by the player to affect himself or enemies
+	-signs have different effects based on the colors included in the crafting of the sign, and the specific shape of the sign(folowing recepies)
+		-% red affects enemies
+		-% green affects the player
+		-% blue affects the physics
+	-upgrades to different values such as storage of raw color, player health, ect can be done through special temporary signs
+	-levels could be cleared by either a task(making a certain sign, or surviving for a certain amount of time, reaching a certain point ect)
 
 	-recipie book- a reference of valid crafting patterns for the player, with new *pages* unlocking every so often
 	
-	OTF user defined signs-
-		certian shapes created with the colors could mean certain things
-		the shapes would be simple and intuitive such as a plus indicates a healing element or an arrow indicates a force
-		the shapes could be interpreted based on their location relative to other shapes and their color, ect.
+	-OTF user defined signs-
+		-certian shapes created with the colors could mean certain things
+		-the shapes would be simple and intuitive such as a plus indicates a healing element or an arrow indicates a force
+		-the shapes could be interpreted based on their location relative to other shapes and their color, ect.
+		-a custom symbol would require a base, or something signifying the main purpose of the symbol
+		-users could create custom libraries of symbols and signs for quick access
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 enemies-
-	several types
-		basic - sentry: follows a set path and hurts the player when it collides
-			turret: fires projectiles at the player to damage it
-		advanced - finds the closest path to the player and follows it
-			more advanced enemies may move faster, or even fly/glide through the air and fire projectiles
-	drops pure color or collectables when killed
-	all enemies are killable
+	-several types
+		-basic - sentry: follows a set path and hurts the player when it collides
+			-turret: fires projectiles at the player to damage it
+		-advanced - finds the closest path to the player and follows it
+			-more advanced enemies may move faster, or even fly/glide through the air and fire projectiles
+	-drops pure color or collectables when killed
+	-all enemies are killable
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 physics-
-	basic platformer physics for gravity and friction and collision
-		modified by the effects of signs
-	signs can affect physics with respect to a local area or to an object
+	-basic platformer physics for gravity and friction and collision
+		-modified by the effects of signs
+	-signs can affect physics with respect to a local area or to an object
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 graphics-
-	similar graphics format to my platformer engine, with the main paint method calling the higher level paint methods
+	-similar graphics format to my platformer engine, with the main paint method calling the higher level paint methods
 	-new- fps counter/changer system
-		is self regulating, when it senses that the fps has slowed, adjust things to make it faster =D
-	render quality - setting that disables certain paint functions that are not required for comprehension of the graphics
+		-is self regulating, when it senses that the fps has slowed, adjust things to make it faster =D
+	-render quality - setting that disables certain paint functions that are not required for comprehension of the graphics
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 User Interface-
-	menus-
-		point and click mouse interface with custom buttons, text boxes, and menuboxes
-		custom controls will be implemented in the form of objects added to an array of control elements for a menu, a menu itself may even be implemented as a class for beautification and cleanliness
-	gameplay-
-		keyboard controls-configurable through settings-default settings:
-			w-jump
-			a-left
-			s-crouch, slow
-			d-right
-			r-recipe book
-			c-crafting menu
-			space-advance through menus/cutscenes
-			1_5-hotkeys for signs/weapons
-		mouse controls-aim for ranged weapons/signs, direction of affect for meele weapons/items
-			right click to use items, fire ranged weapon, launch sign
-			left click to use current held item as (ineffective)weapon
+	-menus-
+		-point and click mouse interface with custom buttons, text boxes, and menuboxes
+		-custom controls will be implemented in the form of objects added to an array of control elements for a menu, a menu itself may even be implemented as a class for beautification and cleanliness
+	-gameplay-
+		-keyboard controls-configurable through settings-default settings:
+			-w-jump
+			-a-left
+			-s-crouch, slow
+			-d-right
+			-r-recipe book
+			-c-crafting menu
+			-space-advance through menus/cutscenes
+			-1_5-hotkeys for signs/weapons
+		-mouse controls-aim for ranged weapons/signs, direction of affect for meele weapons/items
+			-right click to use items, fire ranged weapon, launch sign
+			-left click to use current held item as (ineffective)weapon
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 signs-
-	types-
-		local effect-
-			affects a small area in the game: healing the player, affects physics, damaging enemies
-				time based-affects are scaled based on the time that the sign was first placed and the time it is meant to be in existance
-				eternal-no dilation of affects based on time or any other factor
-		player effect-
-			when placed, it only affects the player and has no actual bearing on the level(does not actually get placed)- heals the player, upgrades the player's stats, ect
-		item effect-
-			same as player effect, is not placed in the level. instead - it is used to create an item or weapon, or (when crafted with an item or weapon) repairs/upgrades the item or weapon
+	-types-
+		-local effect-
+			-affects a small area in the game: healing the player, affects physics, damaging enemies
+				-time based-affects are scaled based on the time that the sign was first placed and the time it is meant to be in existance
+				-eternal-no dilation of affects based on time or any other factor
+		-player effect-
+			-when placed, it only affects the player and has no actual bearing on the level(does not actually get placed)- heals the player, upgrades the player's stats, ect
+		-item effect-
+			-same as player effect, is not placed in the level. instead - it is used to create an item or weapon, or (when crafted with an item or weapon) repairs/upgrades the item or weapon
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+weapons and items-
+	-weapons
+		-meele weapons
+			-beating stick: a primitive handheld weapon that causes minimal damage with no special abilities or properties
+			-collecting stick: a slight upgrade to the beating stick, causes enemies to drop more color
+			-sponge: causes very little damage, but causes enemies to drop significantly more color. there is a item attraction buff when holding this weapon
+			-ink blot: causes more damage then the sponge with better drop rates and a better attraction buff
+			-etc
+		-ranged weapons
+			-throwing sponge: minimal damage, attraction buff, better drop rate
+			-slingshot: more damage then a throwing sponge, no special abilities or properties
+			-etc
+		-when being created, all weapons can be given stage effects and special properties by using the corresponging shapes in crafting
+	-items
+		-splash effect/grenade style weapons are thrown and give stage effects and buffs to entitys within range
+		-healing items: heals the user of the item
+		-give buff items: gives a specifies or random buff to the user of the item
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/
 file format-
-	saved game-
-		semicolon delimited, like java!
-		<gameName>;<filePathToLevel>;<redAmount>;<greenAmount>;<blueAmount>;<playerX>;<playerY>;//other values?
-	level-
-		again, semicolon delimited with brackets for arraylist parsing, parenthesis for parameters comma delimeted
-		<playerStartX>;<playerStartY>;{(<platformType>,<topLeftX>,<topLeftY>,<width>,<height>,...);(...);...};{(<entityType>,<entityX>,<entityY>,...),...}
+	-saved game
+		-semicolon delimited, like java!
+		-<gameName>;<filePathToLevel>;<redAmount>;<greenAmount>;<blueAmount>;<playerX>;<playerY>;//other values?
+	-level
+		-again, semicolon delimited with brackets for arraylist parsing, parenthesis for parameters comma delimeted
+		-<playerStartX>;<playerStartY>;{(<platformType>,<topLeftX>,<topLeftY>,<width>,<height>,...);(...);...};{(<entityType>,<entityX>,<entityY>,...),...}
 =======================================================================\
 ------------------------------------------------------------------------>
 =======================================================================/	
@@ -224,6 +246,7 @@ gameplay-
 ------------------------------------------------------------------------>
 =======================================================================/
 framework-
+	-levels loaded from text files upon choosing to play them
 	-state machine determining what to do or display at any given time
 		-menu state
 		-level parsing/loading state

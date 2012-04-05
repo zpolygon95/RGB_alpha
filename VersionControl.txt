@@ -1,10 +1,10 @@
---------------------------------------------------------------------------------------------------------------------
 |------------------------------------------------------------------------------------------------------------------|
 ||----------------------------------------------------------------------------------------------------------------||
+|||--------------------------------------------------------------------------------------------------------------|||
 |||This file should ideally be used as a blog for issues or ideas about the game, to be changed with every commit|||
+|||--------------------------------------------------------------------------------------------------------------|||
 ||----------------------------------------------------------------------------------------------------------------||
 |------------------------------------------------------------------------------------------------------------------|
---------------------------------------------------------------------------------------------------------------------
 
 March 04 2012, 11:55 PM
 
@@ -29,3 +29,24 @@ and if you are reading this now then thanks! I feel somewhat useful! I celebrate
 gold star if you can see it!
 
 ~Zachary Polikarpus
+
+========================================================================================================================================================
+
+March 05 2012, 11:29 AM
+
+>>I worked on the desc file for awhile and had an idea: That we should make the game very mod-able!
+items, weapons, entitys, and shapes/symbols/signs should all be controlled through text files or other
+files that wouldnt be obvuscated upon compiling and distributing the game! we could include a readme
+or tutorial file describing what the correct format of the different types of files would be and how to incorperate them into the game!
+
+I spent a significant amount of time creating and documenting base classes, with only primitive functionality and methods: much more work to be done!
+
+Hopefully documentation will stay solid throughout developmentL and not fall apart like it did with the platforming engine I made a while ago,
+because this is a truly joint project
+
+Nothing more to write for now: I'm going to take a break before Robotics and maybe think some more about how we want to do the dynamic crafting libraries
+and think more about the dynamic entities and items and how that might work
+
+~Zachary Polikarpus
+
+=========================================================================================================================================================
