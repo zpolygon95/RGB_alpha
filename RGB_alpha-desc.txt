@@ -1,0 +1,241 @@
+menus
+
+start menu-
+	new game: creates a new save file based on certain parameters specified in the new game menu
+	continue game - greyed out if no save files exit: starts the game with certain parameters specified by the save file
+	tutorial/credits: contains instructions for new users on how to play the game, and recepies for reference; then a credits page
+	options: opens a menu to set options
+	~super secret level builder mode!~: opens level editor(drag and drop style with parameters in text fields) and a list of all user created levels
+ ________      ________
+|________|    |_/_/_/_/|
+
+ ________      ________
+|________|    |________|
+
+      ____________      
+     |////////////| 
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+pause menu-
+	save and quit: tries to make a save file with a specified name, if it already exists-ask if the user wants to overwrite
+	(music and sound seperately)volume slider w/ mute button controls
+	options: visusal options such as render quality and FPS controls, and also game controls such as dificulty
+ ________
+|________|  |----[]----| []
+ ________
+|________|  |----[]----| []
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+new game-
+	textbox for name of game: the save file will be stored under ${name}.text
+	level options: options to be specified at the begining of the game, such as dificulty, tester passwords, etc
+	begin button: creates the save file with the new parameters
+ _________
+|_-_-_-_-_|
+ _________
+|_________|
+
+ [] ----
+ _________
+|_________|
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+continue game-
+	scrollable box filled with saved games, click to continue
+ ________________
+|             /\ |
+| []---       || |
+| []-----        |
+| []----         |
+| []----      || |
+|             \/ |
+|________________|
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+tutorial/credits-
+	page by page tutorial of the game with credits at the end: described above
+ ________________
+|                |
+| ~~~~~~~~~~~~~~ |
+| ~~~~~~~~       |
+| ~~~~~~~~~~~~   |
+|                |
+| <=          => |
+|________________|
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+options-
+	generally will have difficulty,
+		FPS options,
+		graphics options,
+		sound,
+		custom keymaping
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+~super secret level builder mode!~
+	user built levels list
+		(local and import?)
+	create new level button
+
+ ________________
+|             /\ |
+| []---       || |
+| []-----        |
+| []----         |
+| []----      || |
+|             \/ |
+|________________|
+ ________________
+|________________|
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+HUD(heads-up display)-
+	possibly configurable from options
+	R, G, and B tubes-only certain amount of storage
+	Collectables counter - such as crystals of R G or B for crafting
+	crafting opened by hotkey
+	more complicated types of crafting made through making signs and placing them
+	minimap/enemy detection
+
+              ========  ___
+[ ]  __________________|   |
+[_] |                  |___|
+    |                    |
+[ ] |                    |
+[_] |                    |
+    |                    |
+[ ] |____________________|
+[_]    ~/~ || ~/~
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+Level Builder HUD-
+	builder controls for type and size of platform
+	mouse click-<delta>x, <delta>y coordinate system
+	custom keymapping in options
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+crafting- see netbeans project crafting squares
+
+[O][ ][ ][O]
+[ ][O][O][ ]
+[ ][O][O][ ]
+[O][ ][ ][O]
+
+	signs are created and placed in the world by the player to affect himself or enemies
+	signs have different effects based on the colors included in the crafting of the sign, and the specific shape of the sign(folowing recepies)
+		% red affects enemies
+		% green affects the player
+		% blue affects the physics
+	upgrades to different values such as storage of raw color, player health, ect can be done through special temporary signs
+	levels could be cleared by either a task(making a certain sign, or surviving for a certain amount of time, reaching a certain point ect)
+
+	-recipie book- a reference of valid crafting patterns for the player, with new *pages* unlocking every so often
+	
+	OTF user defined signs-
+		certian shapes created with the colors could mean certain things
+		the shapes would be simple and intuitive such as a plus indicates a healing element or an arrow indicates a force
+		the shapes could be interpreted based on their location relative to other shapes and their color, ect.
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+enemies-
+	several types
+		basic - sentry: follows a set path and hurts the player when it collides
+			turret: fires projectiles at the player to damage it
+		advanced - finds the closest path to the player and follows it
+			more advanced enemies may move faster, or even fly/glide through the air and fire projectiles
+	drops pure color or collectables when killed
+	all enemies are killable
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+physics-
+	basic platformer physics for gravity and friction and collision
+		modified by the effects of signs
+	signs can affect physics with respect to a local area or to an object
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+graphics-
+	similar graphics format to my platformer engine, with the main paint method calling the higher level paint methods
+	-new- fps counter/changer system
+		is self regulating, when it senses that the fps has slowed, adjust things to make it faster =D
+	render quality - setting that disables certain paint functions that are not required for comprehension of the graphics
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+User Interface-
+	menus-
+		point and click mouse interface with custom buttons, text boxes, and menuboxes
+		custom controls will be implemented in the form of objects added to an array of control elements for a menu, a menu itself may even be implemented as a class for beautification and cleanliness
+	gameplay-
+		keyboard controls-configurable through settings-default settings:
+			w-jump
+			a-left
+			s-crouch, slow
+			d-right
+			r-recipe book
+			c-crafting menu
+			space-advance through menus/cutscenes
+			1_5-hotkeys for signs/weapons
+		mouse controls-aim for ranged weapons/signs, direction of affect for meele weapons/items
+			right click to use items, fire ranged weapon, launch sign
+			left click to use current held item as (ineffective)weapon
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+signs-
+	types-
+		local effect-
+			affects a small area in the game: healing the player, affects physics, damaging enemies
+				time based-affects are scaled based on the time that the sign was first placed and the time it is meant to be in existance
+				eternal-no dilation of affects based on time or any other factor
+		player effect-
+			when placed, it only affects the player and has no actual bearing on the level(does not actually get placed)- heals the player, upgrades the player's stats, ect
+		item effect-
+			same as player effect, is not placed in the level. instead - it is used to create an item or weapon, or (when crafted with an item or weapon) repairs/upgrades the item or weapon
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+file format-
+	saved game-
+		semicolon delimited, like java!
+		<gameName>;<filePathToLevel>;<redAmount>;<greenAmount>;<blueAmount>;<playerX>;<playerY>;//other values?
+	level-
+		again, semicolon delimited with brackets for arraylist parsing, parenthesis for parameters comma delimeted
+		<playerStartX>;<playerStartY>;{(<platformType>,<topLeftX>,<topLeftY>,<width>,<height>,...);(...);...};{(<entityType>,<entityX>,<entityY>,...),...}
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/	
+gameplay-
+	-the user travels through each level, collecting color and crafting signs and tools to progress further through the level until a certain objective is reached and the user progresses to the next level
+	-when all pre-made levels are completed, the user is rewarded with a new game mode: a sandbox style level builder
+	-in the future, perhaps multiplayer functionality and sharing of user made levels
+=======================================================================\
+------------------------------------------------------------------------>
+=======================================================================/
+framework-
+	-state machine determining what to do or display at any given time
+		-menu state
+		-level parsing/loading state
+		-normal gameplay state
+		-paused gameplay state
+		-sign crafting gameplay state
+	-FPS controlable by scheduling new timer events after all the tasks the timer has to complete are done(or however it will work with the threading timer)
+	-open to any other ideas
+		
+
+********************************************
+****                                    ****
+**** add class and method documentation ****
+****                                    ****
+********************************************
