@@ -6,6 +6,8 @@
 ||----------------------------------------------------------------------------------------------------------------||
 |------------------------------------------------------------------------------------------------------------------|
 
+=========================================================================================================================================================
+
 March 04 2012, 11:55 PM
 
 >>First commit! not much in the folder: a useless readme, the desc file and a practically empty netbeans project I whipped up. Hopefully you will take the time to read through all of this, John!
@@ -46,6 +48,16 @@ because this is a truly joint project
 
 Nothing more to write for now: I'm going to take a break before Robotics and maybe think some more about how we want to do the dynamic crafting libraries
 and think more about the dynamic entities and items and how that might work
+
+~Zachary Polikarpus
+
+=========================================================================================================================================================
+
+March 05 2012 10:06 PM
+
+>>Added the znz platformer source -to be stripped down for use- 
+
+Thats pretty much it!
 
 ~Zachary Polikarpus
 
