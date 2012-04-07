@@ -53,7 +53,7 @@ and think more about the dynamic entities and items and how that might work
 
 =========================================================================================================================================================
 
-March 05 2012 10:06 PM
+March 05 2012, 10:06 PM
 
 >>Added the znz platformer source -to be stripped down for use- 
 
@@ -61,4 +61,20 @@ Thats pretty much it!
 
 ~Zachary Polikarpus
 
-=========================================================================================================================================================
+==========================================================================================================================================================
+
+March 07 2012, 12:13 AM
+
+>>Added the convorsations folder to the repo for even more documentation! I want to get in the habit of documenting everything that we do with this project
+so we can have it (if only for sentimental purposes :3). I added the drawing speed test project which as soon as I was able to make it work, gave very promising results! You can look for yourself
+but I am drawing 10,000 polygons on the screen, all of which have 6 vertices which all invoke the get random integer method TWICE for each vertex! and guess how many
+FPS im getting??? OVER 100!!! so this drawing stuff is looking like its not going to be a problem directly. given that its a relatively simple program and the objects
+being drawn probably arent that hard to handle... but I think that I can move on to other things now!
+
+PS: the drawing speed test thing generates some pretty cool screensaver like things XD just play with the settings within the code to get what you want!
+
+PPS: also, I feel bad because I forgot to include this post in the commit so I'm going to do that now!
+
+~Zachary Polikarpus
+
+==========================================================================================================================================================
