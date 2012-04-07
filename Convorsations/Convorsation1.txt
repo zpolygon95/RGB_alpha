@@ -1,0 +1,324 @@
+me:  heeellloooo
+Johnnnnn helloooooo
+ John:  hey.
+sorry
+I'm talking to holly
+talk to you son
+*Soon
+ me:  ooh
+ok XD
+ Sent at 10:46 PM on Thursday
+ me:  herpaderps
+ Sent at 11:06 PM on Thursday
+ John:  yo dawg
+what's up?
+ me:  watching youtube videos XD
+ John:  I heard you like loops, so I put a loop inside your loop so you can while while you while.
+youtubes of what?
+ me:  its a cool minecraft adventure map where you start with almost nothing and you have to make all this crazy stuff
+ John:  that's...vauge.
+ Sent at 11:11 PM on Thursday
+ me:  its called feed the beast. you compete with one other player to make very expensive mod items from like three low priced items that you start with
+ John:  ooooh.
+cool
+I gotta use the bathroom and take a shower.  Will you be ready to talk about the game in a few mins?
+ me:  sure!
+ John:  schweet.
+see ya
+ me:  talk to ya later
+ Sent at 11:13 PM on Thursday
+ John:  what's up?
+ me:  hey!
+ John:  just out of curiosity, where's your phone?
+ me:  lost XD probly at hannahs
+ John:  hahaha
+nice
+good luck finding it
+ me:  yea
+ John:  you wanna room with me again at states?
+ me:  the intarwebs are being slow for me ={
+and yea sure!
+ John:  awww  sorry about your internet
+and awesome!
+ me:  haha XD so what are your thoughts about the game?
+ John:  I think our first order of business, like I said earlier, is to get the engine stripped down.
+or do you maybe want to build an entirely new engine?
+ me:  yeah. the documentation and the comments are riddled with spelling errors
+ John:  btw, the readme took me on a small lollercoaster ride
+ me:  and i think that we should build a new engine, with some of the old code
+and yay! that was my goal!
+ John:  ok.
+ me:  hmm
+ John:  what do we want in this engine?
+ Sent at 11:37 PM on Thursday
+ me:  the engine should do the following: draw platforms of several types, entities, symbols, and the player.
+ John:  well, that's the graphics end of it.
+do you want the paint routines contained inside of each object?
+ me:  it should be based around several arrayLists or just Lists (some thing with dynamic storage)
+ John:  I'm gonna leave you in charge of that half
+ me:  and i think that we should do some experimentation to see whats fastest in terms of drawing
+(i can be in charge of that too)
+ John:  awesome
+ me:  Also, the engine should handle collisions between all the platforms, entities, signs and stage affects, and the player
+ John:  ok, ok.
+hold on a sec
+will all of this physics stuff be contained WITHIN the objects we create?
+or will the stage handle all of that stuff?
+ me:  uhmmm....
+to be determined
+I think that it really depends on whats fastest: again some experimentation is needed
+
+ John:  alright.
+we need to enter that part with a plan, though
+ me:  definately
+ John:  sooo...
+ me:  I think that one of us should create a seperate project with all of the testing stuff to be done
+or maybe even both of us and compare notes
+ John:  that sounds like a good idea...
+but I think it would be too much if each of us tried to handle both physics and graphics
+ me:  Yeah, I could handle graphics is you handle physics
+*if
+ John:  How much should we consult each other about what we are doing?
+ me:  If you look in the main folder in the repositiory, there is a file called versionControl that i'd like to use
+ John:  ok.
+ me:  My thinking is that it's like a blog where we write down our thoughts and record questions or problems
+ John:  that sounds good
+I got a gold star :3
+ me:  And I'd like it to be updated with every commit
+yay!
+ John:  jesus... idk what do.
+"make a physics engine!!!"
+um... ok.
+ me:  hahaha
+look at it this way:
+ John:  WHERE START?!
+ me:  you have just a player and a single platform. how do they interact? and then build from there
+ John:  good advice.
+my main issue is figuring out where in the code I should control the physics.
+I'm not super familiar with OOP, so....
+ me:  ooh XD well I think that we should determine the major program flow tonight
+ John:  ok.
+ me:  it will be mostly procedural
+in that aspect
+ John:  are you sure?
+you sure you want it to be like that?
+ me:  yeah I think so: like make a big method called doPhysics() or something and have all the objects interact
+ John:  hmmm
+and there would, be, like a stage object that contains all of the objects?
+ me:  WOAH I just came up with an optimization from my old code! have a list with all of the objects in a certain range and only operate on that, ignoring the rest of the stage
+oh yeha\
+ John:  that's what I was thinking
+ me:  yeha
+ John:  it would be much faster.
+ me:  omg cant type
+ John:  moreover, you could find a way to avoid making the same comparison twice
+do you have a piece of paper nearby?
+ me:  i have notepad
+and paint
+ John:  lol paint
+use paint
+draw 5 dots that are the verticies of a pentagon
+ me:  a regular pentagon?
+ John:  ya.
+now, connect each dot to each other dot once.
+it is not 4+4+4+4+4
+it is 4+3+2+1
+ me:  connect every dot to every other one
+wait what?
+ John:  never mind... I just need to demonstartae this in person
+ me:  haha ok
+ John:  and it might not actually be applicable to our situation
+I was originally imagining something like this:
+ me:  oooooh
+ John:  for the physics as a whoel
+you get it now?
+ me:  I get it!
+ John:  awesome
+ me:  and im sure you could find a way to integrate that idea
+ John:  possibly.
+at a later date.
+ me:  yeah XD optimizations are ho-grams
+ John:  I feel stained by gridworld.
+I feel like each object should have a move() routine.
+ me:  hahahahaha
+ John:  and that move should do the physics for that object.
+like, in the main, there is an arraylist of active objects.
+that is updated based on the player's position
+ me:  hmm... thats what i did with the painting
+*last time
+ John:  ah
+ok.
+ me:  maybe not a bad idea
+ John:  did you like taking that approach?
+ me:  I thought it made things cleaner but again experimentation will determine the best way
+ John:  correct.
+I'm a little worried about how something liek that would act once you have a large number of objects.
+the processing time required would increase as a square of the nearby items
+if there are n items onscreen, each one has to process n-1 items
+ me:  that was one of my concerns.but its a rather insignificant amount of time in practice
+ John:  n(n-1) = n^2-n.
+ehhh....
+if we want our game to be nice.
+it will probably end up being a lot of time
+ me:  I know. and that is where those optimizations come in
+ John:  consider it, we'll have enemies, globules of paint, platforms, etc.
+there might be 50+objects onscreen at once.
+ me:  I could draw up to 35 objects on screen and offscreen with none of the optimizations we have been talking about with no hiccups
+ John:  huh
+ me:  *35 +
+ John:  and drawing is DEFINATELY more processor intensive than physics.
+ me:  i didnt actually find the cap that my previous engine could handle
+saracsm XP
+ John:  huh
+oh....
+*facepaly
+*facepalm
+ me:  oh and every cycle did physics on every object on the stage
+So i dont think we should have too much of a problem
+ John:  again, though, physics is not processor intensive at all for the scale of complexity that we're looking at.
+math is easy for compttuers.
+ me:  that is true
+ John:  piantng si hrad
+ me:  haha
+ John:  well...
+we just both need to think this over for a little.
+ me:  I agree!
+ Sent at 12:11 AM on Friday
+ me:  
+ John:  
+this is exciting
+ me:  again, agree XD
+ John:  Here's to hoping the project doesn't fizzle out halfway through!!
+ me:  I will not let that happen XP
+ John:  good.
+ me:  you better not either XD
+ John:  I'll try.
+I have a history of letting that happen.
+don't be afraid to bust my ass.
+if I get lazu
+*lazy
+ me:  haha ok i'll try 
+ John:  good.
+a little guilt gets the lazy mamish rolling
+ me:  trololol
+ John:  dammit.  If this were in C++, I would know how to handle the physics.
+because you have more access to the memory of the computer.
+ me:  can you call c files from java?
+ John:  maybe...
+but that would turn this project into a bloody mess.
+highly suggest no.
+worse than a bloody mess.
+ me:  oh ok XD
+ John:  If we're going to write the basis for the ENTIRE PHYSICS in C, we would have to do ALL THE THNGS in C.
+ me:  I'd rather not learn a new language and right off the bat attempt something like this
+ John:  hahaha nooooo
+ me:  XD
+ John:  so, just do this.
+I like the way its set up.
+plus, the portability of java makes me wet.
+HAHAHAHAHAHa
+that was sexual, but much less awkward in my head.
+ me:  X3 
+ John:  but, really though, the portability is awesome
+ me:  I agree! even Zach can run it on his macbook
+ John:  ya!!
+ me:  hey, what happens if this game really takes off?
+like what would you want to do about it?
+ Sent at 12:20 AM on Friday
+ John:  hahaha idk.
+we have to get there first.
+I thought about that, but before we can dream, we need to create something solid.  I've had a lot of experience with dreaming to big and achieving too small.  It's a bad feel.
+ me:  hmm yeah...
+well forget I mentioned it XD
+I guess a better question to ask is why are we making this game?
+ John:  ...cuz its fun?
+cuz it
+cus it's cool?
+ me:  besides that!
+ John:  to get all the ladies.
+ladies love indie game devs.
+especially the ones in high school.
+ me:  oh ya
+ John:  beyond just doing this for fun and to have something to be proud of, it will make us much better programmers.
+ me:  agreed XD
+ John:  IFF it's good, we could get people in FIRST circles to hype it and we could put it online somewhere.
+Like the formal logic? 
+ me:  I do! haha and I like the idea
+ John:  If we want public exposure for this game, we will be able to find some way to get it.
+Internets are magic, man.
+ Sent at 12:26 AM on Friday
+ me:  ya just make a website and get a listing on as many search engines as you can and ya! Who do you want to be alpha/beta testers?
+ John:  people we know/trust.
+I also think we should round up a few people for creative consulting once the game gets out of shit alpha and into alpha phase.
+ me:  like hannah
+for teh arts
+ John:  not just limited to art, though
+ me:  oh yea like actual gameplay
+ John:  also a bit for naggy game design things.
+hahaha
+we said the same thing at the same time!!
+ me:  yeah XD
+
+ John:  good to know we're thinking on the same page
+but, that's all stuff down the road.
+ me:  yeah agree
+ John:  IDK how to approach this.
+as a whole
+part of me is saying to approach it like we approach the robot.
+strategy dictates desing.
+*design.
+but... what is our strategy?
+ me:  well to have a strategy we first need a goal
+ John:  but the goal is the game description...
+ me:  I disagree
+ John:  oh?
+what do you think it is?>
+ Sent at 12:31 AM on Friday
+ me:  The goal is to create a game that is functional (obviously), extremely dynamic, and elegant. It needs to be simple enough so that the player doesn't feel intimidated but complicated enough to make it fun.
+ John:  ok.
+ me:  I think that mod-ability is also important. I talk about it in the version control file
+ John:  maybe we're already too far ahead of ourselves.
+wait, wait.
+we can do this as a strategy dictates design type things.
+*things
+*thgisn
+*things
+FUCK ME/.
+*FUCK ME.
+*thing
+ me:  lol
+explain though
+ John:  what if we just waited until later to even speculate about game mechanics?
+focus right now on the most basic task.
+our MOST BASIC task is to have a functional, bug free game.
+not even game, framework.
+so let's start there.
+forget we're even making a game.
+let's just start by making a robust, easily expandable engine.
+ me:  from now until its accomplished: that is the goal
+ John:  agreed?
+ me:  agreed
+ John:  awesome.
+and let's try and not even talk about the mechanics of the gameplay, let alone how to make them in code.
+that would be like a robotics team trying to haphazardly build an end effector before they've even decided how it should function, let alone what it should do.
+ me:  lol prototypes
+ John:  hahahaha
+I love how I've never participated in those.
+ me:  I have XD
+but I think that this is a good stating point
+ John:  agreed.
+is this it for tonight?\
+ me:  I think so XD
+ John:  If you'll excuse me, I have ponies to watch and code to debug.
+ me:  haha I have code to write and sleeps to get XD I also think that I'm going to document all of out g chat convorsations
+ John:  sounds good.
+ me:  Ok! have fun with your ponies and bugs! 
+ John:  I will!!
+btw, if we do room together at msc, we
+we're gettin cuddly and watchin ponies.
+ me:  haha ok XD
+ John:  talk to you tomorrow.
+ me:  yeah talk to you later! (it is tomorrow)
+ John:  lol
+bye
+ me:  bye!
