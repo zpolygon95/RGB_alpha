@@ -1,28 +1,29 @@
 package graphicsspeedtest;
 
+import java.awt.Canvas;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 import java.util.Timer;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.TimerTask;
 
 /**
  *
  * @author Polygon
  */
-public class GPanel extends JPanel
+public class GPanel extends Canvas
 {
     Timer timer;
     ArrayList<DrawingObject> objs;
-    MyTimerTask task;
     long startTime;
     long endTime;
     long result;
     long average;
     long iterations;
+    Image backupImage;
     
     ArrayList<Long> results;
     /**
@@ -32,36 +33,37 @@ public class GPanel extends JPanel
     public GPanel() {
         objs = new ArrayList<DrawingObject>();
         results = new ArrayList<Long>();
-        task = new MyTimerTask();
         this.requestFocusInWindow();
         this.addKeyListener(new KL());
-//        for (int i = 0; i < 10000; i++)
-//        {
-//            objs.add(new DrawingObject(500, 500, 3, 3));
-//        }
+        for (int i = 0; i < 10; i++)
+        {
+            objs.add(new DrawingObject(500, 500, 3, 3));
+        }
         
-        for (int i = 0; i < 10000; i++)
+        for (int i = 0; i < 10; i++)
         {
             objs.add(new DrawingObject(new int[]{550, 560, 570, 560, 550}, new int[]{400, 410, 420, 430, 440}, 5));
         }
         
-//        for (int i = 0; i < 10000; i++)
-//        {
-//            objs.add(new DrawingObject(750, 250, 3));
-//        }
+        for (int i = 0; i < 10; i++)
+        {
+            objs.add(new DrawingObject(750, 250, 3));
+        }
         
         timer = new Timer();
-        timer.scheduleAtFixedRate(task, 0, 10);
+        timer.schedule(new MyTimerTask(), 10);
         startTime = System.currentTimeMillis();
     }
     
     @Override
     public void paint(Graphics g)
     {
+        g.drawImage(backupImage, 0, 0, this);
         for (DrawingObject o : objs)
         {
             o.paint(g);
         }
+        timer.schedule(new MyTimerTask(), 20);
     }
     
     public class MyTimerTask extends TimerTask
@@ -69,7 +71,7 @@ public class GPanel extends JPanel
 
         @Override
         public void run() {
-            repaint();
+            backupImage = createImage(WIDTH, HEIGHT);
             iterations++;
             if (iterations >= 6000)
             {
@@ -79,6 +81,7 @@ public class GPanel extends JPanel
                 System.out.println((endTime - startTime) / 6000);
                 System.exit(0);
             }
+            repaint();
         }
         
     }

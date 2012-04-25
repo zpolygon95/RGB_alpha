@@ -78,3 +78,9 @@ PPS: also, I feel bad because I forgot to include this post in the commit so I'm
 ~Zachary Polikarpus
 
 ==========================================================================================================================================================
+
+April 25 2012, 6:52 PM
+
+>>On github being retarded:
+	
+	Today, Mamish and I were trying to make a new repo on git, and it wouldnt let us! its just so darned frustrating =(
